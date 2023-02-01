@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site</title>
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        body {
+            min-width: 150px;
+        }
+
+        .margins {
+            display: block;
+            max-width: 500px;
+            margin: 15px auto;
+        }
+
+        input {
+            margin: 15px 0;
+            width: 100%;
+        }
+
+        section {
+            background-color: #404040;
+            max-width: 500px;
+            min-height: 200px;
+            margin: auto;
+            padding: 10px 20px;
+            border-radius: 10px;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        span {
+            display: block;
+        }
+
+        .margins div {
+            margin: 15px 0px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #404040;
+            height: 30px;
+            border-radius: 6px;
+        }
+
+        .margins div input {
+            height: 100%;
+            border: none;
+            border-radius: 6px 0px 0px 6px;
+            color: white;
+            font-size: 16px;
+            background: none;
+            padding: 0px 12px;
+        } .margins div input:focus {
+            outline: 0;
+        }
+
+        .margins div button {
+            padding: 2px 12px;
+            height: 100%;
+            border: none;
+            border-left: 2px solid #A0A0A0;
+            border-radius: 0px 6px 6px 0px;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+            background-color: #A0A0A0;
+            transition: 0.2s;
+        } .margins div button:hover {
+            background-color: #404040;
+        }
+
+        .span-tab {
+            margin-left: 20px;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .btn button {
+            background-color: #A0A0A0;
+            flex: 1 1 30%;
+            color: white;
+            font-size: 17px;
+            padding: 4px 22px;
+            border: 2px solid #A0A0A0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.2s;
+        } .btn button:hover {
+            background-color: #404040;
+        }
+    </style>
+
+    <link rel="stylesheet" href="#">
+</head>
+<body>
+    <div class="margins">
+        <div>
+            <input type="number" name="m" placeholder="margin" id="m">
+            <button id="btn-m">Inserir</button>
+        </div>
+        <div>
+            <input type="number" name="my" placeholder="margin-y" id="my">
+            <button id="btn-my">Inserir</button>
+        </div>
+        <div>
+            <input type="number" name="mx" placeholder="margin-x" id="mx">
+            <button id="btn-mx">Inserir</button>
+        </div>
+        <div>
+            <input type="number" name="mt" placeholder="margin-top" id="mt">
+            <button id="btn-mt">Inserir</button>
+        </div>
+        <div>
+            <input type="number" name="mr" placeholder="margin-right" id="mr">
+            <button id="btn-mr">Inserir</button>
+        </div>
+        <div>
+            <input type="number" name="mb" placeholder="margin-bottom" id="mb">
+            <button id="btn-mb">Inserir</button>
+        </div>
+        <div>
+            <input type="number" name="ml" placeholder="margin-left" id="ml">
+            <button id="btn-ml">Inserir</button>
+        </div>
+    </div>
+
+    <div style="max-width: 500px; margin: 0 auto;">
+        <div class="btn">
+            <button id="btn1">Salvar</button>
+            <button id="btnb">baixar</button>
+            <button id="btnc">clear</button>
+        </div>
+    </div>
+
+    <section id="texto">
+
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.js" integrity="sha512-B+gr+zLWg81qxVwvtYwKrmjvQtZKD/GGFF7jD80OfzbqFw+NsbS5faEqpCO7Q7oRw1bYi0+WLJf54j8Vm7NADw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="scriptjs.js"></script>
+</body>
+</html>
