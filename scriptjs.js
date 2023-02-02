@@ -1,4 +1,5 @@
-document.querySelector("#texto").innerText = localStorage.getItem("texto");
+const textoSalvo = localStorage.getItem("texto");
+document.querySelector("#texto").innerHTML = textoSalvo;
 
 // Variável para armazenar o texto final
 var text = "";
@@ -12,9 +13,21 @@ document.querySelector("#btn-m").addEventListener("click", () => {
     // Obtém o valor inserido pelo usuário
     const margin = document.querySelector("#m").value;
 
+    // Define um array de strings para cada linha de texto que será adicionada ao arquivo de saída
+    const textLines = [
+        `.m-${margin} {`,
+        `    margin: ${margin}px;`,
+        `}`,
+        ``,
+        ``
+    ];
+
+    // Junta todas as strings do array em uma única string, separadas por uma nova linha ('\n')
+    const indentedText = textLines.join('\n');
+
     // Verifica se o valor inserido pelo usuário já existe
-    if (texto.innerHTML.includes(`.m-${margin}`)) {
-        alert("Este valor já foi inserido!");
+    if (text.includes(indentedText)) {
+        window.alert(`O valor ${margin} já foi inserido.`);
         return;
     }
 
@@ -101,7 +114,7 @@ document.querySelector("#my").addEventListener("keyup", (event) => {
 
 
 
-// Seleciona o elemento com id "btn-my" e adiciona um evento de click
+// Seleciona o elemento com id "btn-mx" e adiciona um evento de click
 document.querySelector("#btn-mx").addEventListener("click", () => {
 
     // Seleciona o elemento com id "texto"
@@ -156,7 +169,7 @@ document.querySelector("#mx").addEventListener("keyup", (event) => {
 
 
 
-// Seleciona o elemento com id "btn-my" e adiciona um evento de click
+// Seleciona o elemento com id "btn-mt" e adiciona um evento de click
 document.querySelector("#btn-mt").addEventListener("click", () => {
 
     // Seleciona o elemento com id "texto"
@@ -211,7 +224,7 @@ document.querySelector("#mt").addEventListener("keyup", (event) => {
 
 
 
-// Seleciona o elemento com id "btn-my" e adiciona um evento de click
+// Seleciona o elemento com id "btn-mr" e adiciona um evento de click
 document.querySelector("#btn-mr").addEventListener("click", () => {
 
     // Seleciona o elemento com id "texto"
@@ -266,7 +279,7 @@ document.querySelector("#mr").addEventListener("keyup", (event) => {
 
 
 
-// Seleciona o elemento com id "btn-my" e adiciona um evento de click
+// Seleciona o elemento com id "btn-mb" e adiciona um evento de click
 document.querySelector("#btn-mb").addEventListener("click", () => {
 
     // Seleciona o elemento com id "texto"
@@ -321,7 +334,7 @@ document.querySelector("#mb").addEventListener("keyup", (event) => {
 
 
 
-// Seleciona o elemento com id "btn-my" e adiciona um evento de click
+// Seleciona o elemento com id "btn-ml" e adiciona um evento de click
 document.querySelector("#btn-ml").addEventListener("click", () => {
 
     // Seleciona o elemento com id "texto"
@@ -379,17 +392,32 @@ document.querySelector("#ml").addEventListener("keyup", (event) => {
 
 
 document.querySelector("#btn1").addEventListener("click", () => {
-    const texto = document.querySelector("#texto").innerText;
+    const texto = document.querySelector("#texto").innerHTML;
     localStorage.setItem("texto", texto);
 });
 
 document.querySelector("#btnb").addEventListener("click", () => {
-    //const texto = document.querySelector("#texto").innerText;
 
-    var blob = new Blob([text], {type: "text/css"});
+    var blob = "";
+
+    if (textoSalvo !== "") {
+        blob = new Blob([textoSalvo], {type: "text/css"});
+    } else if (text !== "") {
+        blob = new Blob([text], {type: "text/css"});
+    } else {
+        window.alert("Inssira conteudo para baixar");
+        return;
+    }
+
     saveAs(blob, "style.css");
 });
 
 document.querySelector("#btnc").addEventListener("click", () => {
-    document.querySelector("#texto").innerHTML = "";
-});
+    const aviso = window.confirm("Você tem certesa que quer limpar o css?");
+
+    if (aviso == true) {
+        document.querySelector("#texto").innerHTML = "";
+        localStorage.setItem("texto", "");
+        text = "";
+    } 
+});    
